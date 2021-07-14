@@ -3,7 +3,7 @@ class User
               :jokes
 
   def initialize(name)
-    @name = name
+    @name  = name
     @jokes = []
   end
 

@@ -3,9 +3,9 @@ class OpenMic
               :date,
               :performers
 
-  def initialize(attributes)
-    @location = attributes[:location]
-    @date = attributes[:date]
+  def initialize(location: "Switzerland", date: "tomorrow")
+    @location   = location
+    @date       = date
     @performers = []
   end
 
@@ -14,9 +14,7 @@ class OpenMic
   end
 
   def repeated_jokes?
-    jokes = @performers.map do |user|
-      user.jokes
-    end.flatten
-    jokes.length != jokes.uniq.length
+    jokes = (@performers.map { |performer| performer.jokes }).flatten
+    jokes.uniq.length != jokes.length
   end
 end
